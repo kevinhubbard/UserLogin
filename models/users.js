@@ -1,7 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+mongoose.Promise = global.Promise;
+var uri = 'mongodb://heroku_42tkxt5h:7hmks96j1kufmrd5qff0rcpotu@ds135234.mlab.com:35234/heroku_42tkxt5h';
 
-mongoose.connect('mongodb://localhost/userLogin');
+mongoose.connect(uri,{
+	useMongoClient: true
+});
 
 var db = mongoose.connection;
 
